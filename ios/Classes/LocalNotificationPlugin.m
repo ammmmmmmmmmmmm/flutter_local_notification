@@ -33,7 +33,7 @@
       NSString *title = [args valueForKey:@"title"];
       NSString *content = [args valueForKey:@"content"];
       NSString *subtitle = [args valueForKey:@"subtitle"];
-      NSString *weekDay = [args valueForKey:@"weekDay"];
+      NSString *weekDay = [args valueForKey:@"weekday"];
       NSString *day = [args valueForKey:@"day"];
       NSString *hour = [args valueForKey:@"hour"];
       NSString *minute = [args valueForKey:@"minutes"];
