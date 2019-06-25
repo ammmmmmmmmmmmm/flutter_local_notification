@@ -132,19 +132,22 @@
 
 - (void)remove:(NSString *)identifier {
     
-  NSArray *notifications =   [UIApplication sharedApplication].scheduledLocalNotifications;
+    UNUserNotificationCenter *center =   [UNUserNotificationCenter currentNotificationCenter];
     
-    NSMutableArray *result = [NSMutableArray array];
-    
-    for (UNNotification *notifi in notifications) {
+    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
         
-        if([notifi.request.identifier hasPrefix:identifier]) {
+        
+        NSMutableArray *result = [NSMutableArray array];
+        for (UNNotificationRequest *request in requests) {
             
-            [[UIApplication sharedApplication]cancelLocalNotification:notifi];
-            
+            if([request.identifier hasPrefix:identifier]) {
+                [result addObject:request.identifier];
+            }
         }
         
-    }
+        [center removePendingNotificationRequestsWithIdentifiers:result];
+        
+    }];
     
 }
 
