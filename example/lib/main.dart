@@ -43,9 +43,8 @@ class _MyAppState extends State<MyApp> {
 
   Future<int> test() async {
 
-   List notifs =  await LocalNotification.all();
+  await LocalNotification.remove("789010");
 
-   print(notifs);
   }
 
   @override

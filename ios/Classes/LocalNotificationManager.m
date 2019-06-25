@@ -65,18 +65,12 @@
     UNMutableNotificationContent *notiContent = [self buildNotificationContent:title content:content];
     
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    if (hour > 0) {
-        
-        [dateComponents setHour:hour];
-    }
-    
- 
-    if (minute > 0) {
-        [dateComponents setMinute:minute];
-    }
    
-   
+    [dateComponents setHour:hour];
     
+    [dateComponents setMinute:minute];
+    
+   
     if (weekDay > 0) {
         [dateComponents setWeekday:weekDay];
     }
