@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - local_notification (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - local_notification (from `.symlinks/plugins/local_notification/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  local_notification:
+    :path: ".symlinks/plugins/local_notification/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  local_notification: 637e36141d74f9d7616d95997e95cd7f6debd94c
+
+PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+
+COCOAPODS: 1.5.3
