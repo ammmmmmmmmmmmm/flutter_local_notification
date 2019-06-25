@@ -116,42 +116,35 @@
     
 }
 
-- (void)getAll:(void(^)(NSArray<NSString *>*))callBack {
-    
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+- (NSArray *)getAll {
+    NSMutableArray *result = [NSMutableArray array];
 
-    [center getDeliveredNotificationsWithCompletionHandler:^(NSArray<UNNotification *> * _Nonnull notifications) {
+    NSArray *notifications =   [UIApplication sharedApplication].scheduledLocalNotifications;
+
+    for (UNNotification *notifi in notifications) {
         
-        NSMutableArray *idents = [NSMutableArray array];
+        [result addObject:notifi.request.identifier];
         
-        for (UNNotification *noti in notifications) {
-            [idents addObject:noti.request.identifier];
-        }
-        
-        callBack(idents);
-    }];
-        
+    }
+    
+    return result;
 }
 
 - (void)remove:(NSString *)identifier {
     
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+  NSArray *notifications =   [UIApplication sharedApplication].scheduledLocalNotifications;
     
-    [center getDeliveredNotificationsWithCompletionHandler:^(NSArray<UNNotification *> * _Nonnull notifications) {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    for (UNNotification *notifi in notifications) {
         
-        NSMutableArray *result = [NSMutableArray array];
-        
-        for (UNNotification *notifi in notifications) {
+        if([notifi.request.identifier hasPrefix:identifier]) {
             
-            if([notifi.request.identifier hasPrefix:identifier]) {
-            
-                [result addObject:notifi];
-            }
+            [[UIApplication sharedApplication]cancelLocalNotification:notifi];
             
         }
-      
-        [center removeDeliveredNotificationsWithIdentifiers:result];
-    }];
+        
+    }
     
 }
 

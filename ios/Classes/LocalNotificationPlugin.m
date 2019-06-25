@@ -47,9 +47,8 @@
       
   } else if([@"all" isEqualToString:call.method]) {
       
-    [[LocalNotificationManager share] getAll:^(NSArray<NSString *> * notifications) {
-      result(notifications);
-      }];
+      NSArray *array = [[LocalNotificationManager share] getAll];
+      result(array);
       
   } else if([@"remove" isEqualToString:call.method]) {
       

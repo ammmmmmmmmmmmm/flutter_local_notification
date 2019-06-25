@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
               identfier:(NSString *)identfier
                  repeat:(BOOL)repeat;
 
-- (void)getAll:(void(^)(NSArray<NSString *>*))callBack;
+- (NSArray *)getAll;
 - (void)remove:(NSString *)identifier;
 
 @end
