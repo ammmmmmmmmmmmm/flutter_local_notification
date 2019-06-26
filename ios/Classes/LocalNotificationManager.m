@@ -94,7 +94,10 @@
     notiContent.title = title;
     notiContent.body = content;
     notiContent.sound = UNNotificationSound.defaultSound;
+    //设置在app icon右上角显示的未读标识
     notiContent.badge = @(1);
+
+    
     
     return notiContent;
     
