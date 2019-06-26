@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray *)getAll;
 - (void)remove:(NSString *)identifier;
+-(void)setBadge:(NSInteger)badge;
 
 @end
 

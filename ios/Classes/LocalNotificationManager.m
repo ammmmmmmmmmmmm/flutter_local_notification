@@ -157,5 +157,11 @@
 }
 
 
+-(void)setBadge:(NSInteger)badge {
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+    
+}
+
 
 @end

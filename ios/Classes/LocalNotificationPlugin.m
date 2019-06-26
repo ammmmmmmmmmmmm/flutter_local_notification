@@ -56,6 +56,13 @@
       
       [[LocalNotificationManager share] remove:identfier];
       
+  } else if([@"setBadge" isEqualToString:call.method]) {
+      
+      NSDictionary *args = call.arguments;
+      
+      int badge = [[args valueForKey:@"badge"] intValue];
+      [[LocalNotificationManager share] setBadge:badge];
+      
   }
   else {
 

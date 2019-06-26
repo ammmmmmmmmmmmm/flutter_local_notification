@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "GeneratedPluginRegistrant.h"
 #import <local_notification/LocalNotificationPlugin.h>
-
+#import <UserNotifications/UserNotifications.h>
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
@@ -41,6 +41,7 @@
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     
+    [UIApplication sharedApplication].applicationIconBadgeNumber += notification.request.content.badge;
     completionHandler(UNNotificationPresentationOptionAlert|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge);
 }
 
