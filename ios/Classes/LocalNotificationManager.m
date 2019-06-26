@@ -93,6 +93,8 @@
     
     notiContent.title = title;
     notiContent.body = content;
+    notiContent.sound = UNNotificationSound.defaultSound;
+    notiContent.badge = @(1);
     
     return notiContent;
     
