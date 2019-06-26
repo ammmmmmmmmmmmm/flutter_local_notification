@@ -68,11 +68,10 @@
     
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
    
-//    [dateComponents setHour:hour];
-//
-//    [dateComponents setMinute:minute];
+    [dateComponents setHour:hour];
 
-    [dateComponents setSecond:10];
+    [dateComponents setMinute:minute];
+    
    
     if (weekDay > 0) {
         [dateComponents setWeekday:weekDay];
