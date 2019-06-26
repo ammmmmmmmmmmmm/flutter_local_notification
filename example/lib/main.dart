@@ -42,19 +42,19 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<int> test() async {
-
-  await LocalNotification.remove("789010");
-
+    await LocalNotification.setBadge(10);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){
-
-          LocalNotification.create(identifier: "789010",title: "i am title",content: "i am content",second: 15);
-
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          LocalNotification.create(
+              identifier: "789010",
+              title: "i am title",
+              content: "i am content",
+              second: 15);
         }),
         appBar: AppBar(
           title: const Text('Plugin example app'),

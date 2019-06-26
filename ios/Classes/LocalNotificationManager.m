@@ -36,13 +36,15 @@
     
     UNUserNotificationCenter *center =  [UNUserNotificationCenter currentNotificationCenter];
     
+    
+    
     center.delegate = delegate;
     
-    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionSound|UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
         
     }];
     
-    
+        
     [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         NSLog(@"获取通知");
     }];
@@ -66,10 +68,11 @@
     
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
    
-    [dateComponents setHour:hour];
-    
-    [dateComponents setMinute:minute];
-    
+//    [dateComponents setHour:hour];
+//
+//    [dateComponents setMinute:minute];
+
+    [dateComponents setSecond:10];
    
     if (weekDay > 0) {
         [dateComponents setWeekday:weekDay];
@@ -96,9 +99,6 @@
     notiContent.sound = UNNotificationSound.defaultSound;
     //设置在app icon右上角显示的未读标识
     notiContent.badge = @(1);
-
-    
-    
     return notiContent;
     
 }
